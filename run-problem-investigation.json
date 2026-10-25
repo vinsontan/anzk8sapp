@@ -1,0 +1,282 @@
+{
+  "templateVersion": "1.0.0",
+  "id": "run-problem-investigation",
+  "category": "SL",
+  "order": 2,
+  "title": "Lap 2 — Problem Investigation",
+  "description": "Investigate a real Davis AI problem card and extract signal fast.",
+  "difficulty": "Intermediate",
+  "estimatedTime": 5,
+  "totalTimeLimit": 300,
+  "imagine": "You are the on-call engineer. A Davis AI problem has fired on your ANZ tenant. The problem card is open — use it to triage fast.",
+  "yourGoal": "Answer 5 questions by reading a real closed problem card: identify root cause, understand blast radius, read the event timeline, and choose your next investigation step.",
+  "tools": "Dynatrace Problems · Davis AI · Visual Resolution Path",
+  "note": "These questions are based on a real closed problem from the ANZ tenant. Everything you need is visible in the problem card — read it methodically before answering.",
+  "story": {
+    "introduction": "A Davis AI problem fired at 8:52 am on 1 October. Your job is to triage it quickly and route the investigation correctly.",
+    "context": "The problem is now closed, but the card preserves the full picture: root cause, blast radius, event types, and the resolution path. This is the same view you would have had during the incident."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Root cause identification",
+      "content": "Open the problem card. Which service has Davis AI identified as the root cause?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VehicleFleet",
+          "isCorrect": false,
+          "explanation": "VehicleFleet does not appear in this problem card."
+        },
+        {
+          "id": "b",
+          "text": "APIController",
+          "isCorrect": true,
+          "explanation": "Correct. The Root Cause panel on the right of the problem card explicitly labels APIController with a red 'Root cause' badge."
+        },
+        {
+          "id": "c",
+          "text": "FrontendGateway",
+          "isCorrect": false,
+          "explanation": "FrontendGateway is not mentioned in this problem."
+        },
+        {
+          "id": "d",
+          "text": "PaymentService",
+          "isCorrect": false,
+          "explanation": "PaymentService is not part of this problem."
+        }
+      ],
+      "correctAnswer": "b",
+      "explanation": "Davis AI always assigns root cause to a specific entity. Look for the red 'Root cause' label on the right-hand panel of the problem card.",
+      "points": 150,
+      "hints": [
+        "Check the 'Root cause' panel on the right side of the problem card — it has a red badge on the responsible entity."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Problem Card",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/-5703632553402182881_1790808420000V2?from=now%28%29-2h&to=now%28%29",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "problem"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Problem duration",
+      "content": "How long did this problem remain open before it was closed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "~2 hours",
+          "isCorrect": false,
+          "explanation": "The problem lasted significantly longer than 2 hours."
+        },
+        {
+          "id": "b",
+          "text": "~6 hours",
+          "isCorrect": false,
+          "explanation": "Close, but the duration shown on the card is nearly double this."
+        },
+        {
+          "id": "c",
+          "text": "~12 hours",
+          "isCorrect": true,
+          "explanation": "Correct. The problem card shows 11 hours 57 minutes — just under 12 hours."
+        },
+        {
+          "id": "d",
+          "text": "~24 hours",
+          "isCorrect": false,
+          "explanation": "The problem closed well before 24 hours."
+        }
+      ],
+      "correctAnswer": "c",
+      "explanation": "Duration is shown in the problem header next to the start time. 11h 57min rounds to ~12 hours.",
+      "points": 150,
+      "hints": [
+        "Look at the header bar — it shows when the problem started and how long it lasted."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Problem Card",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/-5703632553402182881_1790808420000V2?from=now%28%29-2h&to=now%28%29",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "problem"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Root cause event types",
+      "content": "In the Root Cause panel, which two event types are listed for APIController?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Warning and Error",
+          "isCorrect": false,
+          "explanation": "Warning is not one of the event types shown on this root cause."
+        },
+        {
+          "id": "b",
+          "text": "Slowdown and Warning",
+          "isCorrect": false,
+          "explanation": "Warning does not appear in the root cause event list."
+        },
+        {
+          "id": "c",
+          "text": "Slowdown and Error",
+          "isCorrect": true,
+          "explanation": "Correct. The root cause panel shows two events: Slowdown → Response time degradation, and Error → Failure rate increase."
+        },
+        {
+          "id": "d",
+          "text": "Info and Slowdown",
+          "isCorrect": false,
+          "explanation": "Info is not shown as a root cause event type here."
+        }
+      ],
+      "correctAnswer": "c",
+      "explanation": "The root cause panel lists the anomaly types that contributed to the problem. Both a performance degradation (Slowdown) and a reliability issue (Error) were present simultaneously.",
+      "points": 150,
+      "hints": [
+        "Each event in the Root Cause panel has a coloured type label — note both labels listed under APIController."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Problem Card",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/-5703632553402182881_1790808420000V2?from=now%28%29-2h&to=now%28%29",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "problem"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Blast radius",
+      "content": "How many services were impacted by this problem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "isCorrect": false,
+          "explanation": "More than one service was affected."
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "isCorrect": true,
+          "explanation": "Correct. The Impact section shows Services (2) — two APIController instances from the Application Observability service."
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "isCorrect": false,
+          "explanation": "The service count shown is lower than 4."
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "isCorrect": false,
+          "explanation": "The service count shown is lower than 6."
+        }
+      ],
+      "correctAnswer": "b",
+      "explanation": "The Impact section is your blast radius summary. Always check it first to understand scope before diving into root cause analysis.",
+      "points": 150,
+      "hints": [
+        "Look at the Impact section tabs — the number in brackets next to 'Services' is your answer."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Problem Card",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/-5703632553402182881_1790808420000V2?from=now%28%29-2h&to=now%28%29",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "problem"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Choosing your next step",
+      "content": "You want to understand the chain of service calls that led to this failure. Which built-in feature on the problem card would you use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deployment tab",
+          "isCorrect": false,
+          "explanation": "The Deployment tab shows deployment events, not service call chains."
+        },
+        {
+          "id": "b",
+          "text": "Visual resolution path",
+          "isCorrect": true,
+          "explanation": "Correct. The Visual resolution path renders a live topology map of all entities involved — showing which service called which, and where the problem propagated from."
+        },
+        {
+          "id": "c",
+          "text": "Comments and insights",
+          "isCorrect": false,
+          "explanation": "Comments and insights is a collaboration feature, not an investigation tool."
+        },
+        {
+          "id": "d",
+          "text": "Business flows filter",
+          "isCorrect": false,
+          "explanation": "Business flows shows end-to-end user journeys, not the service-level call chain."
+        }
+      ],
+      "correctAnswer": "b",
+      "explanation": "The Visual resolution path is the fastest way to see entity relationships and call chains during an incident. It shows you how the problem propagated across services.",
+      "points": 150,
+      "hints": [
+        "Look at the right-hand side of the problem card for a panel that shows a topology map of connected services."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Problem Card",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/-5703632553402182881_1790808420000V2?from=now%28%29-2h&to=now%28%29",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "problem"
+        }
+      ]
+    }
+  ],
+  "maxScore": 750,
+  "tags": [
+    "advanced",
+    "run",
+    "problems",
+    "davis-ai",
+    "incident-response",
+    "root-cause",
+    "production"
+  ],
+  "learningObjectives": [
+    "Identify the root cause entity from a Davis AI problem card",
+    "Read blast radius from the Impact section",
+    "Distinguish between event types (Slowdown vs Error) in the root cause panel",
+    "Use the Visual resolution path to understand service call chains",
+    "Interpret problem duration and severity from the problem header"
+  ],
+  "isPublished": true,
+  "isActive": true,
+  "createdAt": "2026-10-18T00:00:00.000Z",
+  "updatedAt": "2026-10-18T00:00:00.000Z"
+}

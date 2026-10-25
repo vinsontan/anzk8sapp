@@ -1,0 +1,283 @@
+{
+  "templateVersion": "1.0.0",
+  "id": "run-dynatrace-assist",
+  "category": "SL",
+  "order": 3,
+  "title": "Lap 3 — Dynatrace Assist & AI",
+  "description": "Learn how to use natural language with Dynatrace — Playground, Copilot, and Local MCP.",
+  "difficulty": "advanced",
+  "estimatedTime": 5,
+  "totalTimeLimit": 300,
+  "imagine": "Your team wants to start writing DQL and querying Dynatrace using natural language. You need to know which approach fits which situation — and which one is right for you today.",
+  "yourGoal": "Answer 5 questions about the three ways ANZ can use Dynatrace Assist and AI — understanding the trade-offs, setup requirements, and the right tool for each use case.",
+  "tools": "Dynatrace Assist · Dynatrace Playground · Microsoft Copilot · Local MCP Server",
+  "note": "These questions are based on the 'Dynatrace Assist at Your Fingertips' notebook. Focus on the approach and trade-offs for each option — not the specific prompts or commands.",
+  "story": {
+    "introduction": "Dynatrace Assist brings natural language directly into your observability workflow. But there are three distinct ways to access it — each with different setup, capability, and trade-offs.",
+    "context": "From zero-setup playground access through to a fully environment-aware Local MCP server connected to your live tenant, understanding the options means you can choose the right entry point for your team today — and grow from there."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Ways to use natural language with Dynatrace",
+      "content": "How can ANZ team members interact with Dynatrace using natural language to write and run DQL queries?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Access Dynatrace Assist on playground.apps.dynatrace.com",
+          "isCorrect": false,
+          "explanation": "This is one valid option, but not the only one."
+        },
+        {
+          "id": "b",
+          "text": "Use Dynatrace AI skills within Microsoft Copilot",
+          "isCorrect": false,
+          "explanation": "This is one valid option, but not the only one."
+        },
+        {
+          "id": "c",
+          "text": "Connect an Local MCP client with Dynatrace AI skills in their IDE",
+          "isCorrect": false,
+          "explanation": "This is one valid option, but not the only one."
+        },
+        {
+          "id": "d",
+          "text": "All of the above",
+          "isCorrect": true,
+          "explanation": "Correct. The notebook covers three complementary approaches: Playground, Self-Help Copilot (M365), and Local MCP Server. Each builds on the last in terms of setup and capability."
+        }
+      ],
+      "correctAnswer": "d",
+      "explanation": "Dynatrace Assist is accessible via three paths — Playground for zero-friction exploration, Copilot for DQL drafting, and Local MCP Server for full environment-aware access. The right choice depends on your team's setup and goals.",
+      "points": 150,
+      "hints": [
+        "The notebook presents multiple options — consider whether any single option alone covers all the ways described."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Notebook",
+          "url": "https://pyx45104.apps.dynatrace.com/ui/document/v0/#share=a9a19844-9c32-4ddc-ac71-95d924cf04f7",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "notebook"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "timeLimit": 45,
+      "title": "Zero-setup entry point",
+      "content": "Which option lets you explore Dynatrace Assist immediately — with zero setup, no tenant credentials, and access to pre-loaded demo data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Self-Help Copilot",
+          "isCorrect": false,
+          "explanation": "Self-Help Copilot requires light setup — cloning a repository and adding it to your Copilot workspace."
+        },
+        {
+          "id": "b",
+          "text": "Local MCP Server",
+          "isCorrect": false,
+          "explanation": "Local MCP Server requires moderate setup including Node.js, repository cloning, and browser-based authentication."
+        },
+        {
+          "id": "c",
+          "text": "Dynatrace Playground",
+          "isCorrect": true,
+          "explanation": "Correct. The Playground at playground.apps.dynatrace.com requires no setup, no credentials, and is pre-loaded with realistic demo data — ready in ~2 minutes."
+        },
+        {
+          "id": "d",
+          "text": "K8s Optimization Report",
+          "isCorrect": false,
+          "explanation": "The K8s Optimization Report requires live telemetry from your own environment — it is the payoff, not the starting point."
+        }
+      ],
+      "correctAnswer": "c",
+      "explanation": "Playground is the fastest path to experiencing Dynatrace Assist. Because it uses shared demo data, it is not environment-aware — but that makes it ideal for learning the patterns before applying them to live data.",
+      "points": 150,
+      "hints": [
+        "Look at the Setup column in the comparison table — one option shows 'None'."
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Notebook",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.notebooks",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "notebook"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Local MCP Server advantage",
+      "content": "What is the key advantage of the Local MCP Server approach over Playground and Self-Help Copilot?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires no setup and works immediately",
+          "isCorrect": false,
+          "explanation": "Local MCP Server requires moderate setup — Node.js, a cloned repository, and browser authentication."
+        },
+        {
+          "id": "b",
+          "text": "It generates DQL locally without any live connection",
+          "isCorrect": false,
+          "explanation": "That describes the Self-Help Copilot approach, not Local MCP Server."
+        },
+        {
+          "id": "c",
+          "text": "It is fully environment-aware — querying and generating against your live ANZ tenant data",
+          "isCorrect": true,
+          "explanation": "Correct. The Local MCP Server connects your IDE directly to your Dynatrace tenant, scoped to your user permissions. It can build dashboards, run notebooks, and execute DQL against live telemetry."
+        },
+        {
+          "id": "d",
+          "text": "It works offline without any credentials",
+          "isCorrect": false,
+          "explanation": "Local MCP Server requires browser-based OAuth authentication to connect to your tenant."
+        }
+      ],
+      "correctAnswer": "c",
+      "explanation": "The Local MCP Server is the most powerful option because it is environment-aware. Your IDE assistant can generate and execute DQL against your actual data, create notebooks, and build dashboards — all scoped to your own user permissions.",
+      "points": 150,
+      "hints": [
+        "Look at the 'Environment-aware' column in the comparison table — which option shows a green tick with 'Browser auth'?"
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Notebook",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.notebooks",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "notebook"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Self-Help Copilot trade-off",
+      "content": "When using the Self-Help Copilot approach, what is the key trade-off to understand?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires admin rights to provision platform tokens",
+          "isCorrect": false,
+          "explanation": "The Self-Help Copilot approach runs entirely local — no tokens or admin rights are needed."
+        },
+        {
+          "id": "b",
+          "text": "It generates DQL locally but is not connected to your live environment — queries must be copied and run manually in your tenant",
+          "isCorrect": true,
+          "explanation": "Correct. Copilot uses the Dynatrace AI skills repository as a local reference to draft DQL, but it has no live connection — you copy the generated query into your tenant to execute it."
+        },
+        {
+          "id": "c",
+          "text": "It only works inside the Dynatrace UI",
+          "isCorrect": false,
+          "explanation": "Self-Help Copilot runs entirely on your laptop inside Microsoft Copilot — no Dynatrace UI required."
+        },
+        {
+          "id": "d",
+          "text": "It needs a dedicated OAuth client configured in your Dynatrace tenant",
+          "isCorrect": false,
+          "explanation": "OAuth clients are not required for the Self-Help Copilot approach."
+        }
+      ],
+      "correctAnswer": "b",
+      "explanation": "The Self-Help Copilot is great for drafting DQL fast without any live connection — ideal when you are offline or want to prototype queries. The trade-off is that you need to copy the generated DQL into your tenant to execute it and verify the results.",
+      "points": 150,
+      "hints": [
+        "The notebook notes that Copilot 'runs entirely local — no tenant credentials required to draft queries'. What does that imply about execution?"
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Notebook",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.notebooks",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "notebook"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Local MCP Server authentication model",
+      "content": "The Local MCP Server approach connects to your Dynatrace tenant. How does it authenticate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Via a long-lived platform token stored in a config file",
+          "isCorrect": false,
+          "explanation": "The Local MCP Server explicitly does not require platform tokens — that is one of its advantages."
+        },
+        {
+          "id": "b",
+          "text": "Via OAuth Authorization Code flow in your browser — no token-creation rights needed",
+          "isCorrect": true,
+          "explanation": "Correct. The Local MCP Server uses browser-based OAuth — you sign in as yourself. The token is cached securely in the OS keychain after the first login. No admin rights or token creation are needed."
+        },
+        {
+          "id": "c",
+          "text": "Via an API key entered manually at startup",
+          "isCorrect": false,
+          "explanation": "API keys are not used in the Local MCP Server approach."
+        },
+        {
+          "id": "d",
+          "text": "Via SSO configured directly in your IDE",
+          "isCorrect": false,
+          "explanation": "Authentication flows through your browser, not through IDE-level SSO."
+        }
+      ],
+      "correctAnswer": "b",
+      "explanation": "Browser-based OAuth means you sign in as yourself — scoped to your own permissions — without needing anyone to create tokens or OAuth clients for you. The token is cached in your OS keychain after the first login.",
+      "points": 150,
+      "hints": [
+        "The notebook explicitly says 'you don't need permission to create platform tokens or OAuth clients'. How does it authenticate instead?"
+      ],
+      "actionButtons": [
+        {
+          "label": "Open Notebook",
+          "url": "https://rjs75730.apps.dynatrace.com/ui/apps/dynatrace.notebooks",
+          "variant": "emphasized",
+          "color": "primary",
+          "type": "notebook"
+        }
+      ]
+    }
+  ],
+  "maxScore": 750,
+  "tags": [
+    "advanced",
+    "run",
+    "dynatrace-assist",
+    "ai",
+    "dql",
+    "Local MCP",
+    "copilot",
+    "playground"
+  ],
+  "learningObjectives": [
+    "Identify the three ways to use natural language with Dynatrace",
+    "Choose the right Dynatrace Assist approach based on setup constraints and use case",
+    "Understand the trade-off of the Self-Help Copilot — DQL drafting without live execution",
+    "Explain why the Local MCP Server is the most powerful option and how it authenticates",
+    "Know which option requires zero setup and why that matters for adoption"
+  ],
+  "isPublished": true,
+  "isActive": true,
+  "createdAt": "2026-10-18T00:00:00.000Z",
+  "updatedAt": "2026-10-18T00:00:00.000Z"
+}

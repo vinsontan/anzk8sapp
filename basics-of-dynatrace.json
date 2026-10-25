@@ -1,0 +1,147 @@
+{
+  "templateVersion": "1.0.0",
+  "id": "basics-of-dynatrace",
+  "category": "CO",
+  "order": 1,
+  "title": "Basics of Dynatrace",
+  "description": "Explore Launchpads, investigate services, and discover how reliability and delivery metrics support better decisions.",
+  "difficulty": "beginner",
+  "estimatedTime": 5,
+  "totalTimeLimit": 300,
+  "imagine": "You have joined a team using Dynatrace to understand its applications and deliver reliable software. Your first task is to find the right tools and interpret the signals they provide.",
+  "yourGoal": "Answer five questions about Launchpads, Services, SLOs, Site Reliability Guardian, and delivery metrics.",
+  "tools": [
+    { "label": "Launchpads" },
+    { "label": "Services" },
+    { "label": "Service-Level Objectives" },
+    { "label": "Site Reliability Guardian" },
+    { "label": "SDLC events" }
+  ],
+  "note": "These introductory questions do not require access to a particular tenant. Use the documentation buttons to explore each topic.",
+  "story": {
+    "assets": [
+      {
+        "type": "image",
+        "url": "/ui/assets/scenario-stories/basics-of-dynatrace.png",
+        "alt": "An engineer exploring service health, reliability targets, release validation, and delivery pipelines."
+      }
+    ],
+    "introduction": "A teammate asks where to start in Dynatrace, how to investigate a slow service, and how to assess whether software delivery is improving.",
+    "context": "Start with a curated Launchpad, inspect service health and requests, then connect operational reliability with release validation and software delivery performance."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Why use a Launchpad?",
+      "content": "Your team wants one starting page with links to its Dynatrace apps, dashboards, notebooks, and internal runbooks. How can a Launchpad help?",
+      "options": [
+        { "id": "a", "text": "It installs OneAgent automatically on every host.", "isCorrect": false },
+        { "id": "b", "text": "It provides a customizable starting page with curated links, cards, and guidance for the team.", "isCorrect": true },
+        { "id": "c", "text": "It replaces the need to grant access to the linked apps and documents.", "isCorrect": false },
+        { "id": "d", "text": "It stores all application traces instead of Grail.", "isCorrect": false }
+      ],
+      "correctAnswer": "b",
+      "explanation": "Launchpads organize apps, documents, and internal or external resources into a useful starting page. They help people find relevant tools; they do not replace access permissions or telemetry storage.",
+      "points": 100,
+      "hints": ["Think of a curated entry point for your team's daily work."],
+      "actionButtons": [
+        { "label": "Explore Launchpads", "url": "https://docs.dynatrace.com/docs/discover-dynatrace/get-started/dynatrace-ui/launchpads" }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Read service health",
+      "content": "You open the Services app to check whether a checkout service is slow, failing, or receiving more traffic. Which signals are most relevant?",
+      "options": [
+        { "id": "a", "text": "Dashboard count, notebook count, and Launchpad count.", "isCorrect": false },
+        { "id": "b", "text": "Deployment frequency, commit count, and team size.", "isCorrect": false },
+        { "id": "c", "text": "Response time, failure rate, and throughput.", "isCorrect": true },
+        { "id": "d", "text": "Host name, operating system version, and disk capacity alone.", "isCorrect": false }
+      ],
+      "correctAnswer": "c",
+      "explanation": "Response time describes latency, failure rate describes unsuccessful requests, and throughput describes request volume. Together they help assess service and endpoint behavior over the selected timeframe.",
+      "points": 100,
+      "hints": ["Look for signals that describe speed, errors, and traffic."],
+      "actionButtons": [
+        { "label": "Explore Services", "url": "https://docs.dynatrace.com/docs/observe/application-observability/services/services-app" }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "Investigate a failing service",
+      "content": "The Services app shows an increased failure rate for checkout. What is the most useful next investigation step?",
+      "options": [
+        { "id": "a", "text": "Inspect the affected endpoints and failure details, then follow related traces or logs for the same timeframe.", "isCorrect": true },
+        { "id": "b", "text": "Assume the service with the highest request volume is always the root cause.", "isCorrect": false },
+        { "id": "c", "text": "Restart every service before examining the failed requests.", "isCorrect": false },
+        { "id": "d", "text": "Change the service name so it no longer appears in the failure list.", "isCorrect": false }
+      ],
+      "correctAnswer": "a",
+      "explanation": "Use endpoint and failure analysis to narrow the investigation, then examine available request traces and logs in the relevant timeframe. A service-level symptom is a starting point, not proof of the root cause.",
+      "points": 100,
+      "hints": ["Move from the service summary to evidence about the affected requests."],
+      "actionButtons": [
+        { "label": "Investigate Services", "url": "https://docs.dynatrace.com/docs/observe/application-observability/services/services-app" }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "SLOs and Site Reliability Guardian",
+      "content": "Your team defines a target of 99.9% successful checkout requests over a chosen evaluation period and wants to validate reliability after a release. Which statement best describes SLOs and Site Reliability Guardian (SRG)?",
+      "options": [
+        { "id": "a", "text": "An SLO guarantees that no request will ever fail, and SRG prevents every production incident.", "isCorrect": false },
+        { "id": "b", "text": "An SLO is only a CPU threshold, and SRG is a tool for restarting hosts.", "isCorrect": false },
+        { "id": "c", "text": "SRG replaces all SLOs with deployment counts.", "isCorrect": false },
+        { "id": "d", "text": "An SLO defines a measurable reliability target; SRG evaluates configured objectives to help assess release impact.", "isCorrect": true }
+      ],
+      "correctAnswer": "d",
+      "explanation": "An SLO expresses a reliability target for a defined period and supports error-budget tracking. Site Reliability Guardian validates configured objectives, which can include SLO-based checks, to inform release decisions. Validation does not guarantee incident-free operation.",
+      "points": 100,
+      "hints": ["Separate the reliability target from the tool that validates objectives."],
+      "actionButtons": [
+        { "label": "Understand SLOs", "url": "https://docs.dynatrace.com/docs/deliver/service-level-objectives" },
+        { "label": "Explore Site Reliability Guardian", "url": "https://docs.dynatrace.com/docs/deliver/site-reliability-guardian" }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "timeLimit": 60,
+      "title": "DORA metrics and SDLC events",
+      "content": "Your team wants to understand how often it deploys and how frequently changes fail. How can SDLC events in Dynatrace support this?",
+      "options": [
+        { "id": "a", "text": "Count service requests and treat every request as a production deployment.", "isCorrect": false },
+        { "id": "b", "text": "Capture and correlate lifecycle events such as deployments and their outcomes to derive delivery metrics such as deployment frequency and change failure rate.", "isCorrect": true },
+        { "id": "c", "text": "Measure only CPU utilization to calculate software delivery performance.", "isCorrect": false },
+        { "id": "d", "text": "Use the number of dashboards as a measure of deployment reliability.", "isCorrect": false }
+      ],
+      "correctAnswer": "b",
+      "explanation": "SDLC events record lifecycle activities such as builds, deployments, and validations. With the required event coverage and correlation, teams can derive DORA delivery metrics. Deployment frequency measures how often production deployments occur; change failure rate measures the proportion that cause failures requiring intervention.",
+      "points": 100,
+      "hints": ["Delivery metrics need evidence about software changes and their outcomes."],
+      "actionButtons": [
+        { "label": "Explore SDLC Events", "url": "https://docs.dynatrace.com/docs/deliver/pipeline-observability-sdlc-events" }
+      ]
+    }
+  ],
+  "maxScore": 500,
+  "tags": ["basics", "dynatrace", "launchpads", "services", "slo", "srg", "dora", "sdlc"],
+  "learningObjectives": [
+    "Explain how Launchpads provide a curated starting point for a team",
+    "Recognize response time, failure rate, and throughput as service health signals",
+    "Choose evidence-based next steps for investigating service failures",
+    "Distinguish an SLO reliability target from SRG objective validation",
+    "Explain how SDLC events support software delivery metrics"
+  ],
+  "isBuiltIn": false,
+  "isPublished": true,
+  "isActive": true
+}
